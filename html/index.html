@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+    <link href="./../css/bootstrap.min.css" rel="stylesheet">
+    <link href="./../css/font-awesome.min.css" rel="stylesheet">
+    <script src="./../renderer/renderer.js"></script>
+    <script>
+        /*
+        We create an IIFE (immediately invoked function expression) that will be executed immediately the app loads.
+        This brings the need to load the script above because we are loading a function in that script. If we don't load it, the function below will throw a ' call to undefined function' error
+         */
+        (function () {
+            //the root folder will be our default path
+            readFolder('/home/rohan/Projects/WebstormProjects/music-player/assets/');
+        })();
+
+        function backPress() {
+            onBackPress()
+        }
+    </script>
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <button class="btn navbar-btn" onclick='backPress()' type="button">Back</button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Music-App</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="#" id='currentPath'>Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- <button type="button" onclick='backPress()'>Back</button> -->
+<div class="list-group" id="listed-files" style="margin-top:60px">
+    <!---  <ol id="display-files"></ol> -->
+</div>
+<div>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom center-block">
+    <div class="container-fluid">
+        <div class="player text-center">
+            <button class="btn" id="button_fbw" onclick='buttonRewindPress()' type="button">
+                <i class="fa fa-fast-backward"></i>
+            </button>
+
+            <button class="btn" id="button_bw" onclick='buttonBackPress()' type="button">
+                <i class="fa fa-backward"></i>
+            </button>
+
+            <button class="btn" id="button_play" onclick='buttonPlayPress()' type="button">
+                <i class="fa fa-play"></i>
+            </button>
+
+            <button class="btn" id="button_stop" onclick='buttonStopPress()' type="button">
+                <i class="fa fa-stop"></i>
+            </button>
+
+            <button class="btn" id="button_fw" onclick='buttonForwardPress()' type="button">
+                <i class="fa fa-forward"></i>
+            </button>
+
+            <button class="btn" id="button_ffw" onclick='buttonFastforwardPress()' type="button">
+                <i class="fa fa-fast-forward"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+<script>
+    require('./../renderer/renderer');
+</script>
+<audio autoplay id="audio-element"></audio>
+</body>
+</html>
